@@ -1,0 +1,64 @@
+{% load static %}
+<html>
+  <head>
+    <title>Access Control System</title>
+
+    <link type="text/css" rel="stylesheet" href="{% static 'acs/css/result.css' %}">
+  </head>
+
+  <body> 
+    <h2> Access Control System </h2>
+    
+  {% if status %} <!--if the student is not found-->
+    <h2 style="color:red"> {{status}} </h2>
+    Need assistance:
+    <ol>
+      <li> Clean your finger and try again</li>
+      <li> Place your finger firmly on the sensor </li>
+    </ol>
+    If the above don't work, please visit the ICT office for further assistance.
+
+  {% else %} <!--if the student is found-->
+    
+    
+    <h2 style="color:green">
+      {% if time_out %} Goodbye, {% else %} Welcome, {% endif %}
+
+      {{student.name}} 
+    </h2>
+
+    <table border=1>
+      <tr>
+        <td>Profile picture: </td>
+        <td>    
+        {% comment %} <img id="profile-pic" src="../media/{{student.profile_pic}}">   {% endcomment %}
+        </td>
+      </tr>
+      <tr>
+        <td>Matric Number: </td>
+        <td>{{student.matric_no}}  </td>
+      </tr>
+      <tr>
+        <td>Time In:</td>
+        <td> {{time_in}}  </td>
+      </tr>
+      <tr>
+        <td>Time Out:</td>
+        
+        {% if time_out %}
+        <td>{{time_out}}  </td>
+        
+        {% else %}
+        <td>  -  </td>
+        
+        {% endif %}
+        
+      </tr>
+    </table>
+
+  {% endif %}
+
+  <script tpye="text/javascript" src="{% static 'acs/js/result.js' %}"> </script>
+    
+  </body>
+</html>

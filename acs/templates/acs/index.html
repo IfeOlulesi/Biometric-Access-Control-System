@@ -1,0 +1,44 @@
+{% load static %}
+<html>
+  <head>
+    <title>Access Control System</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'acs/css/index.css' %}">
+  </head>
+
+  <body> 
+    <h2> Access Control System </h2>
+
+      Instructions:
+      <ol>
+        <li>Click the 'scan fingerprint' button</li>
+        <li>Place your registered finger on the scanner properly</li>
+        <li>After the image has loaded, click the submit button</li>
+      </ol>
+    
+    <button onclick="captureFP()">Scan fingerprint</button><br><br>
+    <!--button onclick="ShowDetails()">Show Details</button> <br-->
+    <img width="260" height="300" id="FPImage1" 
+      src="{% static 'acs/images/Default-Image.bmp' %}" 
+      alt="Place your finger on the sensor">
+
+    <img width="800", height="300"  src={% static 'acs/images/finger-placement.jpeg' %}>
+      
+    <br><br>
+
+    <!-- Beginning of the form -->
+    <form method="post" action="{% url 'acs:auth' %}" >
+      {% csrf_token %}
+      
+      <label for="img-base64">Base64: </label>
+      <input type="text" name="img-base64" id="img-base64"><br><br>
+      
+      <input type="submit" value="Submit">
+    </form>
+    <!-- End of form -->
+
+    <!--div id="result"></div-->
+
+    <script tpye="text/javascript" src="{% static 'acs/js/index.js' %}"> </script>
+    
+  </body>
+</html>
