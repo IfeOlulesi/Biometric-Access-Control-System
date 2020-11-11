@@ -1,6 +1,14 @@
 # Biometric-Access-Control-System
 An access control system built with Django. It makes use of fingerprints to grant/deny access
 
+## Hardware Requirements
+Secugen Hampster Pro Fingerprint scanner (recommended)
+
+## Software Requirements
+Secugen Web API. Here are the download links:
+- For Windows 64 bit machines: https://webapi.secugen.com/download/SGI_BWAPI_Win_64bit.exe
+- For Windows 32 bit machines: https://webapi.secugen.com/download/SGI_BWAPI_Win_32bit.exe
+
 ## Setup
 
 STEP 1: Clone the repository:
@@ -28,10 +36,9 @@ session operates in a virtual environment set up by `virtualenv2`.
 STEP 4: Once `pip` has finished downloading the dependencies, run the following in your terminal:
 
 ```sh
-$ cd TaskHelp
 $ python manage.py runserver
 ```
-And navigate to `http://127.0.0.1:8000/todo/`.
+And navigate to `http://127.0.0.1:8000/`
 
 To play around with the API, run
 ```
