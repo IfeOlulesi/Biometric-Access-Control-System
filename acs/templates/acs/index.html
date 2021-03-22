@@ -29,6 +29,7 @@
     <form method="post" action="{% url 'acs:auth' %}" >
       {% csrf_token %}
       
+      
       <label for="img-base64">Base64: </label>
       <input type="text" name="img-base64" id="img-base64"><br><br>
       
