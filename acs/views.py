@@ -89,7 +89,7 @@ def auth(request):
 
   # STEP 4 - first render
   if min(list_of_difs) > CUTOFF: # if the fingerprint doesn't match any on the database
-    return render(request, 'acs/result.html', {
+    return render(request, 'acs/result.html', { #STUDENT NOT FOUND
       'status': 'Error 404: Student not found',
     })
     
