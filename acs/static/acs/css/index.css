@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+img {
+  /* max-width: 100%; */
+  width: 70px;
+  height: 100px;
+}
+
+.container {
+  /* border: 1px solid lightgrey; */
+  padding: 10px;
+  display: flex;
+}
+
+#base-container {
+  height: 100%;
+  min-height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  padding: 0;
+}
+
+#navbar {
+  padding: 0;
+}
+
+.navbar-header {
+  flex-grow: 2;
+}
+
+#header-text {
+  font-family: "PT Sans Narrow";
+}
+
+.navbar-links {
+  font-family: "Rancho";
+  font-size: larger;
+  flex-grow: 1;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+a:nth-child(1) {order: 3;}
+a:nth-child(2) {order: 2;}
+a:nth-child(3) {order: 1;}
+
+#main-section {
+  justify-content: center;
+  flex-grow: 2;
+}
+
+#big-rectangle {
+  background-color: #F7F7F7;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 20px;
+}
+
+#main-section-h3 {
+  flex-grow: 1;
+}
+
+#fprint-image-container {
+  flex-grow: 8;
+}
+
+#fprint-image-container {
+  justify-content: center;
+}
+
+#footer-section {
+  flex-direction: column;
+  justify-content: center;
+}
+
+#footer-section > .container {
+  justify-content: center;
+}
+
+#social-media-contact {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-content: stretch;
+}
+
+#social-media-contact > a {
+  margin: 0 5px 0 5px;
+}
+
+#extra-info {
+  font-size: smaller;
+}
