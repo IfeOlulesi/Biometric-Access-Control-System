@@ -1,23 +1,18 @@
 {% extends 'acs/base.html' %}
 {% load static %}
   
-{% block title %}Access Control System{% endblock title %} 
+{% block title %}ACS | Develop {% endblock title %} 
 
 {% block cssLinks %}
   <link type="text/css" rel="stylesheet" href="{% static 'acs/css/index.css' %}">
-  <link type="text/css" rel="stylesheet" href="{% static 'acs/css/result.css' %}"
+  <link type="text/css" rel="stylesheet" href="{% static 'acs/css/develop.css' %}"
 {% endblock cssLinks %}
 
   
 {% block content %}
   <div id="main-content" class="display-flex">
     {% if status %} <!--if the student is not found-->
-    <div class="left-slide-in-container">
-      <div>
-        <h2 style="color:red"> {{status}} </h2>
-      </div>
-    </div>
-      
+      <h2 style="color:red"> {{status}} </h2>
       Need assistance:
       <ol>
         <li> Clean your finger and try again</li>
@@ -26,41 +21,35 @@
       If the above don't work, please visit the ICT office for further assistance.
 
     {% else %} <!--if the student is found-->
-    <div class="left-slide-in-container container">
+    <div id="left-slide-in-container" class="container">
       <div>
         {% if time_out %} Goodbye, 
         {% else %} Welcome, 
         {% endif %}
-        {{student.name}}
+        Joe Hamilton 
       </div>
     </div>
     <div id="table-container" class="container jc-center">
       <div id="content-container" class="container">    
         
         <div id="profile-pic-container" class="container jc-center">
-          <img id="profile-pic" src="../media/{{student.profile_pic}}">  
+          <img id="profile-pic" src="../media/profile-pic/DSC_0132.JPG">  
         </div>
 
         <div class="container jc-center fs-larger">
-          <p id="matric-no-display">{{student.matric_no}}</p>
+          <p id="matric-no-display">{{student.matric_no}}AUL/SMS/16/00234</p>
         </div>  
         
-        <div id="time-stamps" class="container jc-center fs-larger">
-          <table border=1 style="border: 1px solid lightgrey; border-style: none;">
-            <tr> 
-              <td> <p>In:</p> </td>
-              <td> {{time_in}} </td>
-            </tr>
-            <tr> 
-              <td> <p> Out: </p> </td>
-              <td> {% if time_out %} {{time_out}}
-              {% endif %} 
-              </td>
-            </tr>
-          </table>
+        <div class="container jc-center fs-larger">
+          <p> In: {{time_in}}  </p>
+          <p>
+            Out: {% if time_out %} {{time_out}}
+          {% else %} - {% endif %}
+          </p>
         </div>
       </div>
     </div>
+
     {% endif %}
   </div>
   

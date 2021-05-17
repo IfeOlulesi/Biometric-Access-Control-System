@@ -10,6 +10,6 @@ urlpatterns = [
     # Ex: localhost:7000/auth
     path('auth/', views.auth, name='auth'),
 
-    # Ex: localhost:7000/result
-    path('result/', views.result, name='result'),
+    # Ex: localhost:7000/develop
+    path('develop/', views.develop, name='develop'),
 ]

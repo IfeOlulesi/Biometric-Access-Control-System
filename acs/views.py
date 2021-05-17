@@ -37,14 +37,8 @@ def check_similarity(img1_rel_path, img2_rel_path):
 
   hash0 = imagehash.average_hash(Image.open(img1_rel_path)) 
   hash1 = imagehash.average_hash(Image.open(img2_rel_path)) 
-  cutoff = 5
 
   return hash0 - hash1
-
-  # if hash0 - hash1 < cutoff:
-  #   return True # if they are similar
-  # else:
-  #   return False # if they are not similar
 
 
 # Create your views here.
@@ -116,7 +110,8 @@ def auth(request):
       # print(f'Time in: {new_tracker.time_in}')
 
       return render(request, 'acs/result.html', {
-      'student':student_found, 'time_in': new_tracker.time_in 
+      'student':student_found, 
+      'time_in': new_tracker.time_in,
     })
 
       
@@ -133,5 +128,9 @@ def auth(request):
     })
     
 
-def result(request): # redundant function
-  return HttpResponse('Either welcome or error')
+def develop(request): 
+  return render(request, 'acs/develop.html', {
+    'student': 'Fred Hamilton',
+    'time_in': '',
+    'time_out': '',
+  })
