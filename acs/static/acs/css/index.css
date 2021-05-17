@@ -1,8 +1,129 @@
-#company-brand {
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+  background-image: url("../images/wavelike\ bg 2.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: -1px 1em;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+img {
+  /* max-width: 100%; */
+  width: 70px;
+  height: 100px;
+}
+
+.container {
+  /* border: 1px solid lightgrey;   */
+  padding: 10px;
+  display: flex;
+}
+
+#base-container {
+  height: 100%;
+  min-height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0;
+}
+
+#navbar {
+  padding: 0;
+}
+
+.navbar-header {
+  flex-grow: 2;
+}
+
+#header-text {
   font-family: "PT Sans Narrow";
-  font-size: 40px;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 700;
-  line-height: 51.76px;
+}
+
+.navbar-links {
+  font-family: "Rancho";
+  font-size: larger;
+  flex-grow: 1;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  padding-top: 15px;
+}
+
+a:nth-child(1) {order: 3;}
+a:nth-child(2) {order: 2;}
+a:nth-child(3) {order: 1;}
+
+#main-section {
+  justify-content: center;
+  flex-grow: 2;
+}
+
+#big-rectangle {
+  background-color: #F7F7F7;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 20px;
+}
+
+#main-section-h3 {
+  flex-grow: 1;
+}
+
+#fprint-image-container {
+  flex-grow: 2;
+}
+
+#base-64 {
+  justify-content: center;
+  flex-grow: 3;
+}
+
+@keyframes border-grow {
+  from {border: inherit;}
+  to {border: 2px solid rgb(64, 98, 112);}
+}
+
+#fprint-image-container > svg:hover {
+  /* animation-name: border-grow;
+  animation-duration: 0.5s;
+  animation-timing-function: ease; */
+  border: 2px solid rgb(64, 98, 112);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#fprint-image-container {
+  justify-content: center;
+}
+
+
+#footer-section {
+  flex-direction: column;
+  justify-content: center;
+}
+
+#footer-section > .container {
+  justify-content: center;
+}
+
+#social-media-contact {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-content: stretch;
+}
+
+#social-media-contact > a {
+  margin: 0 5px 0 5px;
+}
+
+#extra-info {
+  font-size: smaller;
 }

@@ -1,41 +1,44 @@
+{% extends 'acs/base.html' %}
 {% load static %}
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Access Control System</title>
 
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans+Narrow" />
-    <link type="text/css" rel="stylesheet" href="{% static 'acs/css/index.css' %}">
-  </head>
+{% block title %}Access Control System{% endblock title %} 
+{% block cssLinks %}
+  <link
+      type="text/css"
+      rel="stylesheet"
+      href="{% static 'acs/css/index.css' %}"
+    />
+{% endblock cssLinks %}
 
-  <body> 
-    <div>
-      <h2 id="company-brand">Biometric Access Control System</h2>
-      <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Contact</li>
-      </ul>
-    </div>     
-    
-    <button onclick="captureFP()">Scan fingerprint</button><br><br>
-    <!--button onclick="ShowDetails()">Show Details</button> <br-->
-    <img width="260" height="300" id="FPImage1" 
-      src="{% static 'acs/images/Default-Image.bmp' %}" 
-      alt="Place your finger on the sensor">
-
-    <!-- Beginning of the form -->
-    <form method="post" action="{% url 'acs:auth' %}" >
-      {% csrf_token %}
-            
-      <label for="img-base64">Base64: </label>
-      <input type="text" name="img-base64" id="img-base64"><br><br>
-      
-      <input type="submit" value="Submit" id="submit">
-    </form>
-    <!-- End of form -->
-
+{% block content %}
+  <div id="main-section" class="container">
+    <div class="container" id="big-rectangle">
+      <div id="main-section-h3" class="container">
+        <h3>Scan your Fingerprint</h3>
+      </div>
+      <div id="fprint-image-container" class="container">
+        <svg
+          onclick="captureFP()"
+          width="96"
+          height="113"
+          viewBox="0 0 96 113"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M71.24 21.3176C70.92 21.3176 70.6 21.2243 70.32 21.0376C62.64 16.4176 56 14.4576 48.04 14.4576C40.12 14.4576 32.6 16.6509 25.76 21.0376C24.8 21.6443 23.6 21.2243 23.04 20.1043C22.52 18.9843 22.88 17.5376 23.84 16.9309C31.28 12.2176 39.44 9.79092 48.04 9.79092C56.56 9.79092 64 11.9843 72.16 16.8843C73.16 17.4909 73.52 18.8909 73 20.0109C72.64 20.8509 71.96 21.3176 71.24 21.3176ZM14 45.8176C13.6 45.8176 13.2 45.6776 12.84 45.3976C11.92 44.6509 11.72 43.2043 12.36 42.1309C16.32 35.5976 21.36 30.4643 27.36 26.8709C39.92 19.3109 56 19.2643 68.6 26.8243C74.6 30.4176 79.64 35.5043 83.6 41.9909C84.24 43.0176 84.04 44.5109 83.12 45.2576C82.2 46.0043 80.96 45.7709 80.32 44.6976C76.72 38.8176 72.16 34.1976 66.76 30.9776C55.28 24.1176 40.6 24.1176 29.16 31.0243C23.72 34.2909 19.16 38.9576 15.56 44.8376C15.24 45.4909 14.64 45.8176 14 45.8176ZM39 102.144C38.48 102.144 37.96 101.911 37.6 101.444C34.12 97.3843 32.24 94.7709 29.56 89.1243C26.8 83.3843 25.36 76.3843 25.36 68.8709C25.36 55.0109 35.52 43.7176 48 43.7176C60.48 43.7176 70.64 55.0109 70.64 68.8709C70.64 70.1776 69.76 71.2043 68.64 71.2043C67.52 71.2043 66.64 70.1776 66.64 68.8709C66.64 57.5776 58.28 48.3843 48 48.3843C37.72 48.3843 29.36 57.5776 29.36 68.8709C29.36 75.5909 30.64 81.7976 33.08 86.8376C35.64 92.2043 37.4 94.4909 40.48 98.1309C41.24 99.0643 41.24 100.511 40.48 101.444C40.04 101.911 39.52 102.144 39 102.144ZM67.68 93.5109C62.92 93.5109 58.72 92.1109 55.28 89.3576C49.32 84.6443 45.76 76.9909 45.76 68.8709C45.76 67.5643 46.64 66.5376 47.76 66.5376C48.88 66.5376 49.76 67.5643 49.76 68.8709C49.76 75.4509 52.64 81.6576 57.52 85.4843C60.36 87.7243 63.68 88.7976 67.68 88.7976C68.64 88.7976 70.24 88.6576 71.84 88.3309C72.92 88.0976 73.96 88.9376 74.16 90.2443C74.36 91.5043 73.64 92.7176 72.52 92.9509C70.24 93.4643 68.24 93.5109 67.68 93.5109ZM59.64 103.124C59.48 103.124 59.28 103.078 59.12 103.031C52.76 100.978 48.6 98.2243 44.24 93.2309C38.64 86.7443 35.56 78.1109 35.56 68.8709C35.56 61.3109 41.08 55.1509 47.88 55.1509C54.68 55.1509 60.2 61.3109 60.2 68.8709C60.2 73.8643 63.92 77.9243 68.52 77.9243C73.12 77.9243 76.84 73.8643 76.84 68.8709C76.84 51.2776 63.84 36.9976 47.84 36.9976C36.48 36.9976 26.08 44.3709 21.4 55.8043C19.84 59.5843 19.04 64.0176 19.04 68.8709C19.04 72.5109 19.32 78.2509 21.72 85.7176C22.12 86.9309 21.6 88.2843 20.56 88.7043C19.52 89.1709 18.36 88.5176 18 87.3509C16.04 81.2376 15.08 75.1709 15.08 68.8709C15.08 63.2709 16 58.1843 17.8 53.7509C23.12 40.7309 34.92 32.2843 47.84 32.2843C66.04 32.2843 80.84 48.6643 80.84 68.8243C80.84 76.3843 75.32 82.5443 68.52 82.5443C61.72 82.5443 56.2 76.3843 56.2 68.8243C56.2 63.8309 52.48 59.7709 47.88 59.7709C43.28 59.7709 39.56 63.8309 39.56 68.8243C39.56 76.8043 42.2 84.2709 47.04 89.8709C50.84 94.2576 54.48 96.6843 60.12 98.5043C61.2 98.8309 61.8 100.138 61.52 101.351C61.32 102.424 60.48 103.124 59.64 103.124Z"
+            fill="black"
+          />
+        </svg>
+      </div>
+      <div id="base-64" class="container">
+        <form id="base-64-form" action="{% url 'acs:auth' %}" method="post">
+          {% csrf_token %}
+          <input onchange="AutoSubmit()" type="text" name="img-base64" id="img-base64" />
+          <button id="post-man" type="submit" style="display:none">Submit </button>
+        </form>
+      </div>
     </div>
-  </body>
-</html>
+  </div>
+  <script type="text/javascript" src="{% static 'acs/js/index.js' %}" ></script>
+{% endblock content %}
