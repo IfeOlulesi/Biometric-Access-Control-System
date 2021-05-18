@@ -1,7 +1,7 @@
 {% extends 'acs/base.html' %}
 {% load static %}
   
-{% block title %}Access Control System{% endblock title %} 
+{% block title %}Access Control System | Dev Centre{% endblock title %} 
 
 {% block cssLinks %}
   <link type="text/css" rel="stylesheet" href="{% static 'acs/css/index.css' %}">
@@ -10,7 +10,7 @@
 
   
 {% block content %}
-  <div id="main-content" class="display-flex">
+  <div id="main-content" class="container">
     <div class="left-slide-in-container container">
       <div>
         <!--if the student is not found-->
@@ -40,7 +40,7 @@
         {% else %}
         
           <div id="profile-pic-container" class="container jc-center">
-            <img id="profile-pic" src="../media/{{student.profile_pic}}">  
+            <img id="profile-pic" src="../media/profile-pic/DSC_0132.JPG">  
           </div>
 
           <div class="container jc-center fs-larger">
@@ -48,14 +48,14 @@
           </div>  
           
           <div id="time-stamps" class="container jc-center fs-larger">
-            <table border=1>
+            <table>
               <tr> 
                 <td> In: </td>
-                <td> {{time_in}}</td>
+                <td> {{time_in}} asdf</td>
               </tr>
               <tr> 
                 <td> Out: </td>
-                <td> {% if time_out %} {{time_out}}
+                <td> asdf{% if time_out %} asdf{{time_out}}
                 {% endif %} 
                 </td>
               </tr>

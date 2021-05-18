@@ -1,10 +1,110 @@
-body {
-  background-color: rgb(232, 232, 235);
+html, body {
+  width: 100%;
 }
 
-#profile-pic {
-  width: 100px;
-  max-height: 120px;
-  height: auto;
-  /* object-fit: contain; */
+p {
+  border: 1px solid lightgrey;
+}
+
+table {
+  border-collapse: collapse;
+  border: 1px solid gray;
+}
+
+.display-flex {
+  display: flex;
+}
+.jc-center {
+  justify-content: center;
+}
+.fs-larger {
+  font-size: larger;
+}
+.max-height {
+  height: 100%;
+}
+
+#not-found-alerter {
+  color:rgb(184, 129, 129);
+}
+
+#help-container {
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+#help-header {
+  flex-grow: 0.2;
+}
+#help-list {
+  flex-grow: 1;
+}
+#extra-help {
+  flex-grow: 1;
+}
+
+#main-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes slide-left-in {
+  from {
+    margin-left: -800px;
+  }
+  to {margin-left: 0;}
+}
+
+.left-slide-in-container > div {
+  height: fit-content;
+  padding: 5px;
+  
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+
+  background-color: #F7F7F7;
+  color: rgb(100, 138, 163);
+
+  font-size: 30px;
+  font-weight: 700;
+  
+  animation-name: slide-left-in;
+  animation-duration: 1.3s;
+  animation-timing-function: ease-out;
+}
+
+#table-container {
+  height: 100%;
+}
+
+#content-container {
+  background-color: #F7F7F7;
+  flex-direction: column;
+  border-radius: 20px;
+  min-width: 300px;
+  max-width: 320px;
+  flex-direction: column;
+  padding: none;
+}
+
+#profile-pic-container {
+  flex-grow: 2;
+  justify-content: space-around;
+}
+
+img#profile-pic {
+  width: 200px;
+  height: 200px;
+  border-radius: 30px;
+}
+
+#matric-no-display {
+  font-size: 18px; 
+  font-weight: 400;
+  border: none;
+}
+
+#time-stamps {
+  flex-direction: column;
 }

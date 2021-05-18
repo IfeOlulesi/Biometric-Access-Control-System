@@ -1,4 +1,3 @@
-// alert('This script is working!!');
 
 function captureFP() {
   CallSGIFPGetData(SuccessFunc, ErrorFunc);
@@ -163,3 +162,7 @@ function ErrorCodeToString(ErrorCode) {
     return Description;
 }
 
+function AutoSubmit() {
+    const trigger = document.getElementById("post-man");
+    trigger.click();
+}

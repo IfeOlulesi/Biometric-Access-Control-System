@@ -4,10 +4,22 @@
 
 html, body {
   height: 100%;
+  background-image: url("../images/wavelike\ bg 2.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: -1px 1em;
+
+  animation-name: appear;
+  animation-duration: 1.5s; 
 }
 
 h3 {
   font-size: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 img {
@@ -17,7 +29,7 @@ img {
 }
 
 .container {
-  /* border: 1px solid lightgrey; */
+  /* border: 1px solid lightgrey;   */
   padding: 10px;
   display: flex;
 }
@@ -29,7 +41,6 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-
   padding: 0;
 }
 
@@ -51,11 +62,27 @@ img {
   flex-grow: 1;
   flex-direction: row-reverse;
   justify-content: space-between;
+  padding-top: 15px;
 }
+
+
+/* .navbar-link:hover {
+  animation-name: bb-slide-left;
+  animation-duration: 1.2s;
+  animation-timing-function: linear;
+
+  border-bottom: 1px solid black;
+  
+} */
 
 a:nth-child(1) {order: 3;}
 a:nth-child(2) {order: 2;}
 a:nth-child(3) {order: 1;}
+
+@keyframes appear {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
 
 #main-section {
   justify-content: center;
@@ -67,6 +94,7 @@ a:nth-child(3) {order: 1;}
   flex-direction: column;
   justify-content: space-around;
   border-radius: 20px;
+  max-width: 320px;
 }
 
 #main-section-h3 {
@@ -74,7 +102,26 @@ a:nth-child(3) {order: 1;}
 }
 
 #fprint-image-container {
-  flex-grow: 8;
+  flex-grow: 2;
+}
+
+#base-64 {
+  justify-content: center;
+  flex-grow: 3;
+}
+
+@keyframes border-grow {
+  from {border: inherit;}
+  to {border: 2px solid rgb(64, 98, 112);}
+}
+
+#fprint-image-container > svg:hover {
+  /* animation-name: border-grow;
+  animation-duration: 0.5s;
+  animation-timing-function: ease; */
+  border: 2px solid rgb(64, 98, 112);
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 #fprint-image-container {
