@@ -8,16 +8,18 @@ html, body {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: -1px 1em;
-}
 
-body {
   animation-name: appear;
-  animation-duration: 1.5s;
-  /* animation-timing-function: ease-out; */
+  animation-duration: 1.5s; 
 }
 
 h3 {
   font-size: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 img {
@@ -63,6 +65,16 @@ img {
   padding-top: 15px;
 }
 
+
+/* .navbar-link:hover {
+  animation-name: bb-slide-left;
+  animation-duration: 1.2s;
+  animation-timing-function: linear;
+
+  border-bottom: 1px solid black;
+  
+} */
+
 a:nth-child(1) {order: 3;}
 a:nth-child(2) {order: 2;}
 a:nth-child(3) {order: 1;}
@@ -82,7 +94,7 @@ a:nth-child(3) {order: 1;}
   flex-direction: column;
   justify-content: space-around;
   border-radius: 20px;
-  
+  max-width: 320px;
 }
 
 #main-section-h3 {

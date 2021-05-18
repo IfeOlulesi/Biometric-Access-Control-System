@@ -6,16 +6,41 @@ p {
   border: 1px solid lightgrey;
 }
 
+table {
+  border-collapse: collapse;
+  border: 1px solid gray;
+}
+
 .display-flex {
   display: flex;
 }
-
 .jc-center {
   justify-content: center;
 }
-
 .fs-larger {
   font-size: larger;
+}
+.max-height {
+  height: 100%;
+}
+
+#not-found-alerter {
+  color:rgb(184, 129, 129);
+}
+
+#help-container {
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+#help-header {
+  flex-grow: 0.2;
+}
+#help-list {
+  flex-grow: 1;
+}
+#extra-help {
+  flex-grow: 1;
 }
 
 #main-content {
@@ -23,10 +48,6 @@ p {
   display: flex;
   flex-direction: column;
 }
-
-/* #left-slide-in-container {
-  flex-grow: 1;
-} */
 
 @keyframes slide-left-in {
   from {
@@ -62,7 +83,9 @@ p {
   flex-direction: column;
   border-radius: 20px;
   min-width: 300px;
+  max-width: 320px;
   flex-direction: column;
+  padding: none;
 }
 
 #profile-pic-container {
@@ -77,8 +100,9 @@ img#profile-pic {
 }
 
 #matric-no-display {
-  font-size: 30px;
+  font-size: 18px; 
   font-weight: 400;
+  border: none;
 }
 
 #time-stamps {

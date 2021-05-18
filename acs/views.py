@@ -84,7 +84,7 @@ def auth(request):
   # STEP 4 - first render
   if min(list_of_difs) > CUTOFF: # if the fingerprint doesn't match any on the database
     return render(request, 'acs/result.html', {
-      'status': 'Error 404: Student not found',
+      'status': 'Error 404: Unrecognized fingerprint',
     })
     
   else: # if the fingerprint finds a match on the database
@@ -130,7 +130,5 @@ def auth(request):
 
 def develop(request): 
   return render(request, 'acs/develop.html', {
-    'student': 'Fred Hamilton',
-    'time_in': '',
-    'time_out': '',
+    # 'status':'Error 404: Unrecognised Fingerprint',
   })

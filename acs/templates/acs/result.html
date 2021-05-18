@@ -5,65 +5,67 @@
 
 {% block cssLinks %}
   <link type="text/css" rel="stylesheet" href="{% static 'acs/css/index.css' %}">
-  <link type="text/css" rel="stylesheet" href="{% static 'acs/css/result.css' %}"
+  <link type="text/css" rel="stylesheet" href="{% static 'acs/css/result.css' %}">
 {% endblock cssLinks %}
 
   
 {% block content %}
   <div id="main-content" class="display-flex">
-    {% if status %} <!--if the student is not found-->
-    <div class="left-slide-in-container">
-      <div>
-        <h2 style="color:red"> {{status}} </h2>
-      </div>
-    </div>
-      
-      Need assistance:
-      <ol>
-        <li> Clean your finger and try again</li>
-        <li> Place your finger firmly on the sensor </li>
-      </ol>
-      If the above don't work, please visit the ICT office for further assistance.
-
-    {% else %} <!--if the student is found-->
     <div class="left-slide-in-container container">
       <div>
-        {% if time_out %} Goodbye, 
-        {% else %} Welcome, 
+        <!--if the student is not found-->
+        {% if status %} 
+          <span id="not-found-alerter"> {{status}} </span>
+        <!--if the student is found-->  
+        {% else %} 
+          {% if time_out %} Goodbye, 
+          {% else %} Welcome, 
+          {% endif %} {{student.name}}
         {% endif %}
-        {{student.name}}
       </div>
     </div>
     <div id="table-container" class="container jc-center">
       <div id="content-container" class="container">    
         
-        <div id="profile-pic-container" class="container jc-center">
-          <img id="profile-pic" src="../media/{{student.profile_pic}}">  
-        </div>
+        {% if status %}
+          <div id="help-container" class="container max-height">
+            <span id="help-header" class="fs-larger">Need assistance: </span>
+            <ol id="help-list">
+              <li> Clean your finger and try again</li>
+              <li> Place your finger firmly on the sensor </li>
+            </ol>
+            <span id="extra-help">If the above don't work, please visit the ICT office for further assistance.</span>
+          </div>
 
-        <div class="container jc-center fs-larger">
-          <p id="matric-no-display">{{student.matric_no}}</p>
-        </div>  
+        {% else %}
         
-        <div id="time-stamps" class="container jc-center fs-larger">
-          <table border=1 style="border: 1px solid lightgrey; border-style: none;">
-            <tr> 
-              <td> <p>In:</p> </td>
-              <td> {{time_in}} </td>
-            </tr>
-            <tr> 
-              <td> <p> Out: </p> </td>
-              <td> {% if time_out %} {{time_out}}
-              {% endif %} 
-              </td>
-            </tr>
-          </table>
-        </div>
+          <div id="profile-pic-container" class="container jc-center">
+            <img id="profile-pic" src="../media/{{student.profile_pic}}">  
+          </div>
+
+          <div class="container jc-center fs-larger">
+            <p id="matric-no-display">{{student.matric_no}}</p>
+          </div>  
+          
+          <div id="time-stamps" class="container jc-center fs-larger">
+            <table border=1>
+              <tr> 
+                <td> In: </td>
+                <td> {{time_in}}</td>
+              </tr>
+              <tr> 
+                <td> Out: </td>
+                <td> {% if time_out %} {{time_out}}
+                {% endif %} 
+                </td>
+              </tr>
+            </table>
+          </div>
+        {% endif %}
       </div>
     </div>
-    {% endif %}
   </div>
   
-  {% comment %} <script type="text/javascript" src="{% static 'acs/js/result.js' %}"> </script> {% endcomment %}
+  <script type="text/javascript" src="{% static 'acs/js/result.js' %}"> </script>
 {% endblock content %}  
 

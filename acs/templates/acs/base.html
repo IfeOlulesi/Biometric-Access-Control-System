@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 
 <html lang="en">
@@ -8,6 +9,10 @@
     <title> {% block title %}{% endblock title %} </title>
 
     {% block cssLinks %}{% endblock cssLinks %}
+
+    <link rel="icon" 
+      type="image/png" 
+      href="{% static 'acs/images/favicon-square.PNG' %}">
 
     <!-- Fonts -->
     <link
@@ -24,15 +29,14 @@
 
   <body>
     <div id="base-container" class="container">
-
       <div id="navbar" class="container">
         {% block navbar %}
           <div class="container navbar-header">
-            <h2 id="header-text">Biometric Access Control System</h2>
+            <h2 id="header-text"><a href="http://localhost:8009">Biometric Access Control System</a></h2>
           </div>
           <div class="container navbar-links">
-            <a class="navbar-link">Home</a>
-            <a class="navbar-link">About</a>
+            <a class="navbar-link" href="http://localhost:8009">Home</a>
+            <a class="navbar-link" href="http://localhost:8009/develop">Develop</a>
             <a class="navbar-link">Contact</a>
           </div>
         {% endblock navbar %} 
